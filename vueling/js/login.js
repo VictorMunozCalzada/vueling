@@ -12,6 +12,8 @@ date();
 document.getElementById("registro").style.display="none";
 document.getElementById("busqueda").style.display="none";
 document.getElementById("logout").style.display="none";
+document.getElementById("seleccion").style.display="none";
+
 
 
 document.getElementById("login_btn").addEventListener("click", ajax);

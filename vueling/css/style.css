@@ -1,0 +1,192 @@
+:root{ 
+    --blanco: #ffffff;
+    --negro: #000000;
+    --amarillo: #ffc107;
+    --gris: #757575;
+    --azul: #0097A7;
+}
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-family: 'Krub', sans-serif;
+    margin: 0;
+    background-image:url(../img/avion.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+p{
+    text-align: center;
+}
+h1{
+    font-size: 3rem;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1rem;
+}
+h1, h2, h3{
+    text-align: center;
+}
+header{
+    background-color: var(--amarillo);
+}
+header p{
+    margin: 0; 
+    color: var(--negro);
+    padding: 1rem;
+}
+.boton{
+    background-color: var(--amarillo);
+    color: var(--negro);
+    padding: .8rem 2rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    border: none;
+}
+.boton:hover{
+    cursor: pointer;
+}
+.logout{
+    float: right;
+    margin-right: 3rem;
+}
+.titulo span{
+    font-size: 2rem;
+} 
+.nav_principal{ 
+    background-color: var(--azul);
+    display: flex;
+    justify-content: space-evenly
+}
+.nav_principal a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+.nav_principal a:hover{
+    background-color: var(--amarillo);
+    color: var(--negro);
+}
+.hero{
+    background-image:url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 18rem;
+    position: relative;
+    
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* para centrar contenido */
+    /* position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    width: 100%;
+    height: 100%;
+    color: var(--blanco); */
+
+}
+.login p{
+    font-weight: bold;
+}
+.registro{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+.servicios{
+    margin: 3rem 8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* lo divides en tres partes iguales
+    es lo mismo que: 
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-columns: 1fr 1fr 1fr; */
+    grid-column: 2rem;
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+.servicio h3{
+    color: var(--azul);
+}
+.servicio p{
+    line-height: 2;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 7rem;
+    width: 7rem;
+    background-color: var(--amarillo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formulario{
+    width: 40rem;
+    background-color: var(--gris);
+    margin: 0 auto;
+    /* centrar un elemento */
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--amarillo);
+}
+.formulario fieldset{
+    border: none;
+}
+.busqueda{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.campos input{
+    width: 100%;
+    margin-bottom: .3rem;
+    border-radius: .5rem;
+    border: none;
+    padding: .5rem;
+}
+.campos textarea{
+    height: 8rem;
+    width: 100%;
+}
+.campos label{
+    display: block;
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .3em;
+}
+footer{
+    margin-top: 2rem;
+    text-align: center;
+}
+.error{
+    color: red;
+    font-weight: bold;
+}

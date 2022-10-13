@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vueling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <!-- <link rel="preload" href="css/normalize.css" as="style"> -->
+    <link rel="preload" href="css/style.css" as="style"> 
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/busqueda.css"> -->
+</head>
+<body>
+    <header>
+        <p id="fecha"></p>
+    </header>
+
+    <section id="login"class="login">
+        <h2>Log in</h2>
+        <form class="formulario">
+            <fieldset>
+                <div class="campos">
+                    <div class="campos_contenido">
+                        <label for="">Usuario</label>
+                        <input type="text" id="login_user" placeholder="Tu usuario">
+                    </div>       
+                    <div class="campos_contenido">
+                        <label for="">Contraseña</label>
+                        <input type="password" id="login_pass" placeholder="Tu contraseña">
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="login_btn">Login</button>
+                    <!-- <a href="busqueda.html" id="login_btn">Login</a> -->
+                </div>
+                <div id="resposta_login"></div>
+            </fieldset>
+        </form>
+
+        <p>¿Todavía no estás registrado?</p>
+        <button type="button" id="registrarse" class="boton">Registrate</button>
+    </section>
+
+    <section id="registro" class="registro">
+        <form class="formulario">
+            <fieldset>
+                <legend>Ingresa tus datos</legend>
+                <div class="campos">
+                    <div class="campos_contenido">
+                        <label for="">Nombre</label>
+                        <input type="text" id="registro_name" placeholder="Pon tu nombre" required>
+                        <div id="errorN" class="error"></div>
+                    </div>
+                    <div class="campos_contenido">
+                        <label for="">Usuario</label>
+                        <input type="text" id="registro_user" placeholder="Pon un usuario">
+                        <div id="errorU" class="error"></div>
+                    </div>
+                    <div class="campos_contenido">
+                        <label for="">Contraseña</label>
+                        <input type="password" id="pass1" placeholder="Tu contraseña">
+                        <div id="error_pass" class="error"></div>
+                    </div>
+                    <div class="campos_contenido">
+                        <label for="">Repite contraseña</label>
+                        <input type="password" id="pass2" placeholder="Repite contraseña">
+                        <div id="error_pass2" class="error"></div>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="btn_registro">Registro</button>
+                </div>
+                <div id="resposta_reg"></div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section>
+        <button type="button" class="boton logout" id="logout">Log out</button>
+    </section>
+
+    <section id="busqueda">
+        <form class="formulario busqueda">
+            <fieldset>
+                <legend>Encuentra tu vuelo</legend>
+                <div class="campos">
+                    <label>Origen
+                        <select name="origen" id="origen">
+                        </select>
+                    </label>    
+                </div>
+                <div class="campos">
+                    <label>Destino
+                        <select name="destino" id="destino">
+                        </select>
+                    </label>   
+                </div>
+                <div class="campos">
+                    <label>Fecha de ida
+                        <input type="date" name="ida" id="ida">
+                    </label>  
+                </div>
+                <div class="campos">
+                    <label>Fecha de vuelta
+                        <input type="date" name="vuelta" id="vuelta">
+                    </label> 
+                </div>
+                <div class="campos">
+                    <label>Numero de pasajeros
+                        <select name="pasajeros">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </label>
+                </div>
+                <div>
+                    <button type="button" id="btn_busqueda">Buscar</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+<script src="./js/login.js"></script>
+<script src="./js/registro.js"></script>
+<script src="./js/busqueda.js"></script>
+</body>
+</html>

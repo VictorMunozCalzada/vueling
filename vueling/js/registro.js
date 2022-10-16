@@ -1,6 +1,6 @@
 let errorName=true;
 let errorUserName=true;
-let errName=true, errUser=true, errPass1=true, errPass2;
+let errName=true, errUser=true, errPass1=true, errPass2=true;
 
 document.getElementById("registro").style.display="none";
 
@@ -104,7 +104,14 @@ function validarPassword(value){
         return true;//hay errores!!!
     }   
 }
- 
+
+//evitar registro si cambian la contraseña1 despues de validarla con la constraseña2
+const pass1=document.getElementById("pass1").value;
+const pass2=document.getElementById("pass2").value;
+if(pass1!=pass2){
+    document.getElementById("error_pass").innerHTML="Contraseñas no coinciden";
+    errPass2=true;
+}
 comprobarBoton();
 function comprobarBoton(){
     if(!errName && !errUser && !errPass1 && !errPass2){
@@ -120,7 +127,7 @@ function ajax_registro(){
     
     const name=document.getElementById("registro_name").value;
     const username=document.getElementById("registro_user").value;
-    const pass=document.getElementById("registro_pass").value;
+    const pass=document.getElementById("pass2").value;
 
     //creem un object JavaScript de nom info
     let user = { //objeto con dos propiedades

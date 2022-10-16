@@ -1,3 +1,6 @@
+let errDestino=false;
+
+
 document.getElementById("logout").addEventListener("click", ()=>{
     document.location.href= "index.html";
     //cerrar cookie
@@ -34,10 +37,30 @@ xhr.onload = function(){
 }
 
 
+const origen=document.getElementById("origen").value;
+const destino=document.getElementById("destino").value;
+if(destino==origen){
+    const option= document.createElement("p");
+    const node= document.createTextNode("Destino no puede ser igual a origen")
+    option.appendChild(node);
+    const element=document.getElementById("busqueda_validacion") 
+    element.appendChild(option) 
+    errDestino=true;
+}
+comprobarBoton() 
+
+
+function comprobarBoton(){
+    if(errDestino){
+        document.getElementById("btn_busqueda").disabled=false;
+     }else{
+        document.getElementById("btn_busqueda").disabled=true;
+     }
+ }
+
 document.getElementById("btn_busqueda").addEventListener("click", ()=>{
     document.getElementById("busqueda").style.display="none";
     document.getElementById("seleccion").style.display="block";
-
 
 let xhr = new XMLHttpRequest();
     
@@ -83,9 +106,7 @@ xhr.onload = function(){
             const node= document.createTextNode("55€")
             option.appendChild(node);
             const element=document.getElementById("precio_ida") 
-            //const element2=document.getElementById("precio_vuelta") 
-            element.appendChild(option) 
-            //element2.appendChild(option) 
+            element.appendChild(option)  
         }
         if((origen=="Madrid" && destino=="Barcelona")||(origen=="Madrid" && destino=="Barcelona")){
             const option= document.createElement("p");

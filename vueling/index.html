@@ -155,7 +155,73 @@
                     </div>
                 </div>
                 <div>
-                    <button type="button" id="btn_seleccion">Siguiente</button>
+                    <button type="button" id="btn_seleccion">Continuar</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section id="pasajero" class="">
+        <form class="formulario">
+            <fieldset>
+                <legend>Ingresa tus datos</legend>
+                <div class="campos">
+                    <div class="campos_contenido">
+                        <label for="">Nombre</label>
+                        <input type="text" id="pasajero_name" placeholder="Pon tu nombre" required>
+                        <div id="errorPasajeroName" class="error"></div>
+                    </div>
+                    <div class="campos_contenido">
+                        <label for="">Apellidos</label>
+                        <input type="text" id="pasajero_apellidos" placeholder="Pon tus apellidos" required>
+                        <div id="errorPasajeroApellidos" class="error"></div>
+                    </div>
+                    <div class="campos_contenido">
+                        <label for="">Pais</label>
+                        <input type="text" id="pasajero_pais" placeholder="Pon tu país de residencia" required>
+                        <div id="errorPasajeroPais" class="error"></div>
+                    </div>
+                    <div class="campos_contenido">
+                        <label for="">Teléfono</label>
+                        <input type="text" id="pasajero_telefono" placeholder="Pon tu teléfono móvil" required>
+                        <div id="errorPasajeroTelefono" class="error"></div>
+                    </div>
+                    <div class="campos_contenido">
+                        <label for="">Correo electronico</label>
+                        <input type="text" id="pasajero_email" placeholder="Pon tu email" required>
+                        <div id="errorPasajeroEmail" class="error"></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label><input type="checkbox" id="cbox1">Acepto las políticas de privacidad</label>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="btn_pasajero">Continuar</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section id="extras" class="">
+        <form class="formulario">
+            <fieldset>
+                <legend>Opciones extra</legend>
+                <div class="campos">
+                    <div class="campos_contenido">
+                        <label for="">Nombre</label>
+                        <input type="text" id="pasajero_name" placeholder="Pon tu nombre" required>
+                        <div id="errorPasajeroName" class="error"></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label><input type="checkbox" id="spacePlus">Seient Space Plus: +20€</label>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="btn_extras">Continuar</button>
                 </div>
             </fieldset>
         </form>
@@ -164,5 +230,7 @@
 <script src="./js/login.js"></script>
 <script src="./js/registro.js"></script>
 <script src="./js/busqueda.js"></script>
+<script src="./js/registro.js"></script>
+<script src="./js/extras.js"></script>
 </body>
 </html>

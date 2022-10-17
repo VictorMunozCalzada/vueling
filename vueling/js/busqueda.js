@@ -164,7 +164,7 @@ xhr.onload = function(){
             const node2= document.createTextNode((duracion_precio[1]))
             option2.appendChild(node2)
             const element2=document.getElementById("precio_vuelta") 
-            element2.appendChild(option2) 
+            element2.appendChild(option2)
             
         //     for (let i = 0; i < horas_ida.length; i++) {
         //     const hora_llegada=(horas_ida[i]+duracion_precio[0])
@@ -175,8 +175,14 @@ xhr.onload = function(){
         //     const element3=document.getElementById("hora_llegada") 
         //     element3.appendChild(option3) 
         //  }
-         return respostaServidorr;
+         
+        return respostaServidorr;
      }
     
  }}
+
+ document.getElementById("btn_seleccion").addEventListener("click", ()=>{
+    document.getElementById("seleccion").style.display="none"
+    document.getElementById("pasajero").style.display="block"
+})
 

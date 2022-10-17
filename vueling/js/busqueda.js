@@ -36,7 +36,7 @@ xhr.onload = function(){
     }
 }
 
-
+document.getElementById("btn_busqueda").addEventListener("click", ()=>{
 const origen=document.getElementById("origen").value;
 const destino=document.getElementById("destino").value;
 if(destino==origen){
@@ -45,20 +45,16 @@ if(destino==origen){
     option.appendChild(node);
     const element=document.getElementById("busqueda_validacion") 
     element.appendChild(option) 
-    errDestino=true;
+//comprobar vuelos fecha
+}else{
+    busqueda_correcta();
 }
-comprobarBoton() 
 
+})
 
-function comprobarBoton(){
-    if(errDestino){
-        document.getElementById("btn_busqueda").disabled=false;
-     }else{
-        document.getElementById("btn_busqueda").disabled=true;
-     }
- }
+//BUSQUEDA VUELOS///////////////////////////////////////////////////////////////
 
-document.getElementById("btn_busqueda").addEventListener("click", ()=>{
+function busqueda_correcta(){
     document.getElementById("busqueda").style.display="none";
     document.getElementById("seleccion").style.display="block";
 
@@ -101,19 +97,86 @@ xhr.onload = function(){
         }
 
 
-        if((origen=="Madrid" && destino=="Barcelona")||(origen=="Madrid" && destino=="Barcelona")){
+        if((origen=="Madrid" && destino=="Barcelona")||(origen=="Barcelona" && destino=="Madrid")){
+            const posicion=0;
+            ajax_busqueda_vuelos(posicion)
+        }
+        if((origen=="Barcelona" && destino=="Malaga")||(origen=="Malaga" && destino=="Barcelona")){
+            const posicion=1;
+            ajax_busqueda_vuelos(posicion)
+        }
+        if((origen=="Barcelona" && destino=="Valencia")||(origen=="Valencia" && destino=="Barcelona")){
+            const posicion=2;
+            ajax_busqueda_vuelos(posicion)
+        }
+        if((origen=="Madrid" && destino=="Malaga")||(origen=="Malaga" && destino=="Madrid")){
+            const posicion=3;
+            ajax_busqueda_vuelos(posicion)
+        }
+        if((origen=="Madrid" && destino=="Valencia")||(origen=="Valencia" && destino=="Madrid")){
+            const posicion=3;
+            ajax_busqueda_vuelos(posicion)
+        }
+        if((origen=="Malaga" && destino=="Valencia")||(origen=="Malaga" && destino=="Valencia")){
+            const posicion=4;
+            ajax_busqueda_vuelos(posicion)
+        }
+        
+    }
+}
+
+ function ajax_busqueda_vuelos(posicion){
+
+    //creem  un objecte de tipus XMLHttpRequest
+    let xhr = new XMLHttpRequest();
+    let respostaServidorr="";
+     
+     //obrim connexió pel mètode POST cap a la URL/carpeta relativa 
+     xhr.open("POST","./php/precio.php");
+         
+     //enviem l'objecte info cap al servidor (abans però el passem a format JSON mitjançant la funció stringify)
+     xhr.send(JSON.stringify(posicion));
+     
+     //quan la sol·licitud està completa, el que fem és:
+     xhr.onload = function(){
+        
+         if (xhr.status != 200) { // analitza l'estado HTTP de la resposta
+             
+             alert(`Error ${xhr.status}: ${xhr.statusText}`); // ej. 404: No encontrado
+
+            respostaServidorr="";
+         } else { // mostra el resultat
+             
+             //alert(`Fet, hem obtingut ${xhr.response.length} bytes`); // Resposta del servidor
+            const respostaServidor = JSON.parse(xhr.response); //agafem la resposta xhr.response i la passem a format objecte de JavaScript
+            console.log(respostaServidor)
+
+            const duracion_precio=respostaServidor.split(',');
+            console.log(duracion_precio)
+
             const option= document.createElement("p");
-            const node= document.createTextNode("55€")
+            const node= document.createTextNode(duracion_precio[1])
             option.appendChild(node);
             const element=document.getElementById("precio_ida") 
-            element.appendChild(option)  
-        }
-        if((origen=="Madrid" && destino=="Barcelona")||(origen=="Madrid" && destino=="Barcelona")){
-            const option= document.createElement("p");
-            const node= document.createTextNode("55€")
-            option.appendChild(node);
-            const element=document.getElementById("precio_vuelta") 
             element.appendChild(option) 
-        }
-    }
-})
+
+            const option2= document.createElement("p");
+            const node2= document.createTextNode((duracion_precio[1]))
+            option2.appendChild(node2)
+            const element2=document.getElementById("precio_vuelta") 
+            element2.appendChild(option2) 
+            
+        //     for (let i = 0; i < horas_ida.length; i++) {
+        //     const hora_llegada=(horas_ida[i]+duracion_precio[0])
+
+        //     const option3= document.createElement("option");
+        //     const node3= document.createTextNode(hora_llegada)
+        //     option3.appendChild(node3);
+        //     const element3=document.getElementById("hora_llegada") 
+        //     element3.appendChild(option3) 
+        //  }
+         return respostaServidorr;
+     }
+    
+ }}
+

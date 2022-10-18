@@ -14,7 +14,7 @@ document.getElementById("busqueda").style.display="none";
 document.getElementById("logout").style.display="none";
 document.getElementById("seleccion").style.display="none";
 document.getElementById("pasajero").style.display="none"
-document.getElementById("extras").style.display="none"
+// document.getElementById("extras").style.display="none"
 
 
 

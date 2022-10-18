@@ -47,6 +47,9 @@ if(destino==origen){
     element.appendChild(option) 
 //comprobar vuelos fecha
 }else{
+    const numeroPasajeros=document.getElementById("numeroPasajeros").value;
+    console.log("pasajeros"+numeroPasajeros)
+    document.cookie = `pasajeros=${numeroPasajeros}`
     busqueda_correcta();
 }
 
@@ -185,4 +188,7 @@ xhr.onload = function(){
     document.getElementById("seleccion").style.display="none"
     document.getElementById("pasajero").style.display="block"
 })
+
+
+
 

@@ -110,7 +110,7 @@
                 </div>
                 <div class="campos">
                     <label>Numero de pasajeros
-                        <select name="pasajeros">
+                        <select name="pasajeros" id="numeroPasajeros">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -166,29 +166,29 @@
             <fieldset>
                 <legend>Ingresa tus datos</legend>
                 <div class="campos">
-                    <div class="campos_contenido">
-                        <label for="">Nombre</label>
-                        <input type="text" id="pasajero_name" placeholder="Pon tu nombre" required>
+                    <div class="campos_contenido" id="div_pasajero_name">
+                        <!-- <label for="">Nombre</label>
+                        <input type="text" id="pasajero_name" placeholder="Pon tu nombre" required> -->
                         <div id="errorPasajeroName" class="error"></div>
                     </div>
-                    <div class="campos_contenido">
-                        <label for="">Apellidos</label>
-                        <input type="text" id="pasajero_apellidos" placeholder="Pon tus apellidos" required>
+                    <div class="campos_contenido" id="div_pasajero_apellidos">
+                        <!-- <label for="">Apellidos</label>
+                        <input type="text" id="pasajero_apellidos" placeholder="Pon tus apellidos" required> -->
                         <div id="errorPasajeroApellidos" class="error"></div>
                     </div>
-                    <div class="campos_contenido">
-                        <label for="">Pais</label>
-                        <input type="text" id="pasajero_pais" placeholder="Pon tu país de residencia" required>
+                    <div class="campos_contenido" id="div_pasajero_pais">
+                        <!-- <label for="">Pais</label> -->
+                        <!-- <input type="text" id="pasajero_pais" placeholder="Pon tu país de residencia" required> -->
                         <div id="errorPasajeroPais" class="error"></div>
                     </div>
-                    <div class="campos_contenido">
-                        <label for="">Teléfono</label>
-                        <input type="text" id="pasajero_telefono" placeholder="Pon tu teléfono móvil" required>
+                    <div class="campos_contenido" id="div_pasajero_telefono">
+                        <!-- <label for="">Teléfono</label> -->
+                        <!-- <input type="text" id="pasajero_telefono" placeholder="Pon tu teléfono móvil" required> -->
                         <div id="errorPasajeroTelefono" class="error"></div>
                     </div>
-                    <div class="campos_contenido">
-                        <label for="">Correo electronico</label>
-                        <input type="text" id="pasajero_email" placeholder="Pon tu email" required>
+                    <div class="campos_contenido" id="div_pasajero_email">
+                        <!-- <label for="">Correo electronico</label> -->
+                        <!-- <input type="text" id="pasajero_email" placeholder="Pon tu email" required> -->
                         <div id="errorPasajeroEmail" class="error"></div>
                     </div>
                 </div>
@@ -231,6 +231,7 @@
 <script src="./js/registro.js"></script>
 <script src="./js/busqueda.js"></script>
 <script src="./js/registro.js"></script>
+<script src="./js/pasajero.js"></script>
 <script src="./js/extras.js"></script>
 </body>
 </html>

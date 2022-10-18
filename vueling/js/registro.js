@@ -1,4 +1,4 @@
-let errorName=true;
+let errrrrrrNombre=true;
 let errorUserName=true;
 let errName=true, errUser=true, errPass1=true, errPass2=true;
 
@@ -17,8 +17,8 @@ document.getElementById("registro_name").addEventListener("blur", ()=>{
     if(name== null || name.length == 0 || /^\s+$/.test(name)) {
         document.getElementById("errorN").innerHTML="Campo obligatorio";    
     }else{
-     errorName=validarNombreUsuario(name);
-        if(!errorName){//correcto, no hay errores
+     errrrrrrNombre=validarNombreUsuario(name);
+        if(!errrrrrrNombre){//correcto, no hay errores
             document.getElementById("errorN").innerHTML="";
             errName=false;
             

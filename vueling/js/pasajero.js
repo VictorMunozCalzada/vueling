@@ -7,10 +7,50 @@ document.getElementById("btn_pasajero").addEventListener("click", ()=>{
     document.getElementById("extras").style.display="block"
 })
 
+
+//coger cookie
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  console.log("cookie"+getCookie("pasajeros"))
+
+  function checkCookie() {
+    let numeroPasaj = getCookie("pasajeros");
+  }
+
+
+for (let i= 0; i< 5; i++) {
 document.getElementById("btn_pasajero").disabled=true;
 
-document.getElementById("pasajero_apellidos").addEventListener("blur", ()=>{
-    const apellidos=document.getElementById("pasajero_apellidos").value;
+const label= document.createElement("label");
+const node= document.createTextNode("nombre")
+label.appendChild(node);
+const element=document.getElementById("div_pasajero_name") 
+element.appendChild(label) 
+
+const input= document.createElement("input");
+input.id=`pasajero_name${i}`
+input.placeholder="tu nombre jijiuujeje";
+const element_input=document.getElementById("div_pasajero_name") 
+element_input.appendChild(input) 
+console.log[i]
+
+
+document.getElementById(`pasajero_apellidos${i}`).addEventListener("blur", ()=>{
+    const apellidos=document.getElementById(`pasajero_apellidos${i}`).value;
     //validar campo no esta vacío
     if(apellidos== null || apellidos.length == 0 || /^\s+$/.test(apellidos)) {
         document.getElementById("errorPasajeroApellidos").innerHTML="Campo obligatorio";    
@@ -28,6 +68,13 @@ document.getElementById("pasajero_apellidos").addEventListener("blur", ()=>{
     comprobarBotonPasajero();
 
 });
+  }
+
+
+
+
+
+
 
 document.getElementById("pasajero_telefono").addEventListener("blur", ()=>{
     const telefono=document.getElementById("pasajero_telefono").value;

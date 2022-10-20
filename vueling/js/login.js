@@ -1,27 +1,20 @@
-setInterval(date, 1000)
-function date(){
-    var hoy=new Date;
-    var fecha = hoy.toLocaleDateString();
-    var hora = hoy.toLocaleTimeString();
-    var fechaHora = fecha + ' ' + hora;
-    document.getElementById("fecha").innerHTML=fechaHora;
-}
-
-date();
-
 document.getElementById("registro").style.display="none";
 document.getElementById("busqueda").style.display="none";
 document.getElementById("logout").style.display="none";
 document.getElementById("seleccion").style.display="none";
-// document.getElementById("pasajero").style.display="none"
-// document.getElementById("extras").style.display="none"
-
-
+document.getElementById("pasajero").style.display="none"
+document.getElementById("extras").style.display="none"
 
 
 document.getElementById("login_btn").addEventListener("click", ajax);
 
- function ajax(){
+document.getElementById("btn_seleccion").addEventListener("click", ()=>{
+    document.getElementById("seleccion").style.display="none"
+    document.getElementById("pasajero").style.display="block"
+})
+
+//busca si existe el usuario en server.php al pulsar el boton de login
+function ajax(){
      var username=document.getElementById("login_user").value;
      var passwd=document.getElementById("login_pass").value;
      let user = {
@@ -66,8 +59,14 @@ document.getElementById("login_btn").addEventListener("click", ajax);
      }
  
  }
-
-document.getElementById("btn_seleccion").addEventListener("click", ()=>{
-    document.getElementById("seleccion").style.display="none"
-    document.getElementById("pasajero").style.display="block"
-})
+ 
+ //establece hora actual
+setInterval(date, 1000)
+function date(){
+    var hoy=new Date;
+    var fecha = hoy.toLocaleDateString();
+    var hora = hoy.toLocaleTimeString();
+    var fechaHora = fecha + ' ' + hora;
+    document.getElementById("fecha").innerHTML=fechaHora;
+}
+date();

@@ -1,8 +1,5 @@
-let errrrrrrNombre=true;
-let errorUserName=true;
-let errName=true, errUser=true, errPass1=true, errPass2=true;
+let checkName=true, checkUser=true, checkPass1=true, checkPass2=true;
 
-document.getElementById("btn_registro").addEventListener("click", ajax_registro);
 document.getElementById("registro").style.display="none";
 
 document.getElementById("btn_registro").disabled=true;
@@ -11,75 +8,72 @@ document.getElementById("registrarse").addEventListener("click", ()=>{
     document.getElementById("registro").style.display="block"
 })
 
+document.getElementById("btn_registro").addEventListener("click", ajax_registro);
+
+//valida que el nombre es correcto
 document.getElementById("registro_name").addEventListener("blur", ()=>{
     const name=document.getElementById("registro_name").value;
     //validar campo no esta vacío
     if(name== null || name.length == 0 || /^\s+$/.test(name)) {
         document.getElementById("errorN").innerHTML="Campo obligatorio";    
     }else{
-     errrrrrrNombre=validarNombreUsuario(name);
-        if(!errrrrrrNombre){//correcto, no hay errores
+     let errorNombreRegistro=validarNombreUsuario(name);
+        if(!errorNombreRegistro){//correcto, no hay errores
             document.getElementById("errorN").innerHTML="";
-            errName=false;
+            checkName=false;
             
         }else{//si hay problemas con el nombre introducido
             document.getElementById("errorN").innerHTML="Vuelve a introducir tu nombre. Sólo se permiten letras";
-            errName=true;
+            checkName=true;
         }
     }
     comprobarBotonRegistro();
 
 });
 
+//valida que el nombre de usuario es correcto
 document.getElementById("registro_user").addEventListener("blur", ()=>{
     const username=document.getElementById("registro_user").value;
-    errorUserName=validarNombreUsuario(username);
+    let errorUsernameRegistro=validarNombreUsuario(username);
     //validar campo no esta vacío
     if(username== null || username.length == 0 || /^\s+$/.test(username)) {
         document.getElementById("errorU").innerHTML="Campo obligatorio";        
     }else{
-    if(!errorUserName){//correcto, no hay errores
+    if(!errorUsernameRegistro){//correcto, no hay errores
         document.getElementById("errorU").innerHTML="";
-        errUser=false;
+        checkUser=false;
 
     }else{//si hay problemas con el nombre introducido
         document.getElementById("errorU").innerHTML="Vuelve a introducir tu usuario. Sólo se permiten letras";
-        errUser=true;
+        checkUser=true;
     }}
     comprobarBotonRegistro();
     
 });
 
-function validarNombreUsuario(value){
-
-    const pattern=/^[A-ZÑa-zñáéíóúàèòÁÉÍÓÚÀÈÒ'çÇ ]+$/;
-    if(pattern.test(value)){
-        return false//correcto, no hay errores
-    }{
-        return true;//hay errores!!!
-    }   
-}
+//valida que la contraseña es correcta
 document.getElementById("pass1").addEventListener("blur", ()=>{
     const pass1=document.getElementById("pass1").value;
-    errPass1=validarPassword(pass1);
+    let errPass1Registro=validarPassword(pass1);
     //validar campo no esta vacío
     if(pass1== null || pass1.length == 0 || /^\s+$/.test(pass1)) {
         document.getElementById("error_pass").innerHTML="Campo obligatorio";        
     }
     else{
         document.getElementById("error_pass").innerHTML="";  
-        if(!errPass1){//correcto, no hay errores
+        if(!errPass1Registro){//correcto, no hay errores
             document.getElementById("error_pass").innerHTML="";
-            errPass1=false;
+            checkPass1=false;
     
         }else{//si hay problemas con el pass introducido
             document.getElementById("error_pass").innerHTML="Contraseña debe incluir numeros y letras, minimo 8 caracteres";
-            errPass1=true;
+            checkPass1=true;
         }
     }
     comprobarBotonRegistro()  
 });
 
+//valida que las contraseñas coinciden
 document.getElementById("pass2").addEventListener("blur", ()=>{
     const pass1=document.getElementById("pass1").value;
     const pass2=document.getElementById("pass2").value;
@@ -89,19 +83,30 @@ document.getElementById("pass2").addEventListener("blur", ()=>{
     }else{
         if(pass1!=pass2){
             document.getElementById("error_pass2").innerHTML="Constraseñas no coinciden"
-            errPass2=true;
+            checkPass2=true;
         }
         else{
             document.getElementById("error_pass2").innerHTML=""
-            errPass2=false;
+            checkPass2=false;
         
         }
     }
     comprobarBotonRegistro()  
 });
 
+//validar que solo incluye letras
+function validarNombreUsuario(value){
+
+    const pattern=/^[A-ZÑa-zñáéíóúàèòÁÉÍÓÚÀÈÒ'çÇ ]+$/;
+    if(pattern.test(value)){
+        return false//correcto, no hay errores
+    }{
+        return true;//hay errores!!!
+    }   
+}
+
+//validar password con letras y numeros, minimo 8 caracteres.
 function validarPassword(value){
-    //validar password con letras y numeros, minimo 8 caracteres.
     const pattern=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     if(pattern.test(value)){
         return false//correcto, no hay errores
@@ -110,20 +115,9 @@ function validarPassword(value){
     }   
 }
 
-//evitar registro si cambian la contraseña1 despues de validarla con la constraseña2
-// const pass1=document.getElementById("pass1").value;
-// const pass2=document.getElementById("pass2").value;
-// if(pass1!=pass2){
-//     document.getElementById("error_pass").innerHTML="Contraseñas no coinciden";
-//     errPass2=true;
-//     comprobarBoton();
-// }else{
-//     errPass2=false;
-//     comprobarBoton();
-// }
-
+//valida que todos los campos son correctos y si lo son, activa el boton de registro
 function comprobarBotonRegistro(){
-    if(!errName && !errUser && !errPass1 && !errPass2){
+    if(!checkName && !checkUser && !checkPass1 && !checkPass2){
         document.getElementById("btn_registro").disabled=false;
      }else{
         document.getElementById("btn_registro").disabled=true;
@@ -131,7 +125,7 @@ function comprobarBotonRegistro(){
  }
 
 
-
+//añade el nuevo usuario
 function ajax_registro(){
     
     const name=document.getElementById("registro_name").value;

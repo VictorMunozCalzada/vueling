@@ -1,3 +1,8 @@
+/**
+   * @file Gestiona el login de los usuarios
+   * @author Victor Muñoz
+*/
+
 document.getElementById("registro").style.display="none";
 document.getElementById("busqueda").style.display="none";
 document.getElementById("logout").style.display="none";

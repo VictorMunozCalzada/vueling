@@ -1,3 +1,8 @@
+/**
+   * @file Gestiona todo el proceso de compra del vuelo
+   * @author Victor Muñoz
+*/
+
 let errDestino=false;
 let checkNamePasajero=true, checkApellidos=true, checkTelefono=true, checkEmail=true, box=true;
 

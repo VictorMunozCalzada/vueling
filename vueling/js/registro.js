@@ -1,3 +1,8 @@
+/**
+   * @file Gestiona el registro de los usuarios
+   * @author Victor Muñoz
+*/
+
 let checkName=true, checkUser=true, checkPass1=true, checkPass2=true;
 
 document.getElementById("registro").style.display="none";
